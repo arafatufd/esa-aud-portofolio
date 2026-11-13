@@ -1,0 +1,264 @@
+/* ==========================================================================
+   ESA | Digital Solutions by Arafat UFD
+   File:    assets/css/tokens.css
+   Purpose: Design tokens (CSS custom properties) shared by every page.
+   Source:  Master Design Specification & Claude Handover v1.0 (Document B)
+   Order:   tokens.css -> base.css -> components.css -> sections.css -> pages.css
+
+   Rules for this file
+   - Tokens only. No element, class, or component selectors live here.
+   - Values come from Document B. Where Document B gives only a desktop and
+     a mobile value, the tablet value is documented as an interpolation.
+   - Mobile-first: the default values are mobile values. Larger screens
+     override them with min-width media queries.
+
+   Approved breakpoints (custom properties cannot be used inside media
+   queries, so these are documented here and written out literally):
+     Mobile  : below 768px   (default values in this file)
+     Tablet  : 768px - 1023px  -> @media (min-width: 768px)
+     Desktop : 1024px and up   -> @media (min-width: 1024px)
+
+   Fonts are loaded in each page's <head> (Google Fonts, weights
+   400/500/600/700 for both families). This file only names them.
+   ========================================================================== */
+
+:root {
+
+  /* ------------------------------------------------------------------------
+     1. BRAND PALETTE (approved, locked)
+     ------------------------------------------------------------------------ */
+  --color-navy:        #142B4A;  /* Deep Navy      - primary brand            */
+  --color-midnight:    #0B1728;  /* Midnight Navy  - dark backgrounds         */
+  --color-light-blue:  #DCEAF7;  /* Light Blue     - supporting accent        */
+  --color-white:       #FFFFFF;  /* White          - main background          */
+  --color-cream:       #F7F4ED;  /* Warm Cream     - alternative background   */
+  --color-charcoal:    #202631;  /* Charcoal       - main text                */
+  --color-gold:        #C5A46D;  /* Soft Gold      - minimal decorative accent */
+
+  /* Card border colour specified in Document B section 5.2 */
+  --color-border:      #E5EAF0;
+
+  /* ------------------------------------------------------------------------
+     2. SEMANTIC COLOUR ROLES
+     Components should use these roles, not the raw palette values.
+     ------------------------------------------------------------------------ */
+
+  /* Page and section backgrounds (Document B section 3.3) */
+  --bg-page:           var(--color-white);
+  --bg-alt:            var(--color-cream);       /* About, Portfolio           */
+  --bg-soft:           var(--color-light-blue);  /* Services (Light Blue/White) */
+  --bg-dark:           var(--color-navy);        /* Working Principles, Contact */
+  --bg-darkest:        var(--color-midnight);    /* Footer                      */
+  --bg-card:           var(--color-white);
+
+  /* Text on light backgrounds */
+  --text-primary:      var(--color-charcoal);
+  --text-heading:      var(--color-navy);
+  --text-muted:        rgba(32, 38, 49, 0.72);   /* Charcoal at 72%: about 6:1 on white */
+
+  /* Text on dark backgrounds (Navy / Midnight) */
+  --text-on-dark:        var(--color-white);
+  --text-on-dark-muted:  rgba(255, 255, 255, 0.72);
+
+  /* Interactive colours */
+  --link-color:        var(--color-navy);
+  --link-hover:        var(--color-midnight);
+
+  /* Buttons (Document B section 5.1) */
+  --btn-primary-bg:          var(--color-navy);
+  --btn-primary-text:        var(--color-white);
+  --btn-primary-bg-hover:    var(--color-midnight);
+  --btn-secondary-bg:        transparent;
+  --btn-secondary-text:      var(--color-navy);
+  --btn-secondary-border:    var(--color-navy);
+  --btn-secondary-bg-hover:  var(--color-light-blue);
+  --btn-text-color:          var(--color-navy);
+
+  /* Icons (Deep Navy icon on a Light Blue bubble) */
+  --icon-color:        var(--color-navy);
+  --icon-bg:           var(--color-light-blue);
+
+  /* Gold usage note:
+     --color-gold is a decorative accent only (thin rules, small dots, the
+     wordmark accent). Its contrast on white and cream is too low for text,
+     so never use it as text on light backgrounds. */
+  --accent-gold:       var(--color-gold);
+
+  /* Focus indicators (visible on both light and dark sections) */
+  --focus-ring-color:          var(--color-navy);
+  --focus-ring-color-on-dark:  var(--color-light-blue);
+  --focus-ring-width:          2px;
+  --focus-ring-offset:         3px;
+
+  /* ------------------------------------------------------------------------
+     3. TYPOGRAPHY
+     No serif fonts anywhere (Document B section 4.1).
+     ------------------------------------------------------------------------ */
+  --font-heading: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI",
+                  Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI",
+                  Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Weights */
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+
+  /* Type scale - MOBILE values (default).
+     Hero heading stays between 36px and 40px across the whole mobile range. */
+  --fs-hero:        clamp(2.25rem, 1.65rem + 2.4vw, 2.5rem);  /* 36-40px */
+  --fs-section:     1.75rem;    /* 28px */
+  --fs-subheading:  1.25rem;    /* 20px */
+  --fs-card:        1.125rem;   /* 18px */
+  --fs-body:        1rem;       /* 16px (spec allows 15-16px) */
+  --fs-small:       0.8125rem;  /* 13px */
+  --fs-button:      0.9375rem;  /* 15px (spec allows 14-15px) */
+
+  /* Line heights (Document B section 4.3) */
+  --lh-heading:   1.2;
+  --lh-body:      1.6;
+
+  /* Letter spacing: slightly negative on large headings only */
+  --ls-hero:      -0.02em;
+  --ls-section:   -0.01em;
+  --ls-normal:    0;
+
+  /* Comfortable reading width for long paragraphs */
+  --measure:      65ch;
+
+  /* ------------------------------------------------------------------------
+     4. LAYOUT
+     Content is centred in a container that has a maximum content width of
+     1,160px. Side padding sits outside that content width, so pages should
+     use: width: min(100% - (2 * var(--container-pad)), var(--container-max));
+     ------------------------------------------------------------------------ */
+  --container-max:   1160px;
+  --container-pad:   20px;    /* mobile; tablet 28px; desktop 40px */
+
+  --section-space:   64px;    /* mobile; tablet 80px; desktop 96px */
+  --card-gap:        24px;
+  --grid-gap-lg:     32px;    /* gaps between larger layout columns */
+
+  --nav-height:      68px;    /* sticky navbar */
+  --touch-target:    44px;    /* minimum touch target size */
+
+  /* General-purpose spacing scale (4px base) */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+
+  /* ------------------------------------------------------------------------
+     5. SHAPE, BORDERS AND DEPTH (Document B sections 5.1, 5.2, 5.4)
+     ------------------------------------------------------------------------ */
+  --radius-button:  8px;
+  --radius-card:    16px;
+  --radius-icon:    12px;    /* icon bubbles and small tags */
+  --radius-pill:    999px;   /* small labels such as SELF-INITIATED PROJECT */
+
+  --border-width:   1px;
+  --border-card:    var(--border-width) solid var(--color-border);
+
+  --card-padding:   24px;
+
+  /* Subtle shadows tinted with Deep Navy. No heavy black shadows. */
+  --shadow-sm:         0 1px 2px rgba(20, 43, 74, 0.06);
+  --shadow-card:       0 2px 8px rgba(20, 43, 74, 0.06);
+  --shadow-card-hover: 0 8px 24px rgba(20, 43, 74, 0.10);
+
+  /* ------------------------------------------------------------------------
+     6. ICONS
+     ------------------------------------------------------------------------ */
+  --icon-size:         24px;
+  --icon-size-sm:      20px;
+  --icon-bubble:       48px;
+  --icon-stroke:       1.75;   /* consistent outline stroke width for inline SVG */
+
+  /* ------------------------------------------------------------------------
+     7. MOTION (Document B section 5.5: approximately 150-250ms, subtle)
+     ------------------------------------------------------------------------ */
+  --duration-fast:  150ms;
+  --duration-base:  200ms;
+  --duration-slow:  250ms;
+  --ease-standard:  cubic-bezier(0.2, 0, 0, 1);
+
+  --transition-colors: color var(--duration-base) var(--ease-standard),
+                       background-color var(--duration-base) var(--ease-standard),
+                       border-color var(--duration-base) var(--ease-standard);
+  --transition-lift:   transform var(--duration-base) var(--ease-standard),
+                       box-shadow var(--duration-base) var(--ease-standard);
+
+  --lift-distance:  -4px;    /* slight upward movement on card hover */
+  --image-zoom:     1.04;    /* subtle zoom on project images */
+
+  /* ------------------------------------------------------------------------
+     8. LAYERING
+     ------------------------------------------------------------------------ */
+  --z-base:      1;
+  --z-nav:       100;
+  --z-menu:      110;   /* mobile menu panel, above the navbar */
+}
+
+/* ==========================================================================
+   TABLET - 768px and up
+   Side padding 28px. Section spacing 80px.
+   Hero and section headings use interpolated values between the approved
+   mobile and desktop sizes (Document B gives only those two).
+   ========================================================================== */
+@media (min-width: 768px) {
+  :root {
+    --container-pad:  28px;
+    --section-space:  80px;
+
+    --fs-hero:        2.875rem;  /* 46px  (between 36-40px mobile and 52-56px desktop) */
+    --fs-section:     2rem;      /* 32px  (between 28px mobile and 36px desktop)       */
+    --fs-subheading:  1.375rem;  /* 22px */
+    --fs-card:        1.25rem;   /* 20px */
+    --fs-small:       0.875rem;  /* 14px */
+
+    --nav-height:     72px;
+  }
+}
+
+/* ==========================================================================
+   DESKTOP - 1024px and up
+   Side padding 40px. Section spacing 96px (approved range: 80-100px).
+   ========================================================================== */
+@media (min-width: 1024px) {
+  :root {
+    --container-pad:  40px;
+    --section-space:  96px;
+
+    --fs-hero:        3.25rem;   /* 52px */
+    --fs-section:     2.25rem;   /* 36px */
+  }
+}
+
+/* Large desktop: hero reaches the top of the approved 52-56px range */
+@media (min-width: 1280px) {
+  :root {
+    --fs-hero:        3.5rem;    /* 56px */
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   Removes transition time and hover movement everywhere that uses these
+   tokens. Smooth scrolling is switched off separately in base.css.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast:  0ms;
+    --duration-base:  0ms;
+    --duration-slow:  0ms;
+    --lift-distance:  0px;
+    --image-zoom:     1;
+  }
+}

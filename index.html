@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ESA | Digital Solutions by Arafat UFD</title>
+  <meta name="description" content="Membantu bisnis kecil, UMKM, dan individu menghadirkan ide digital melalui solusi yang praktis, kreatif, dan terjangkau.">
+  <meta name="theme-color" content="#142B4A">
+
+  <!-- Open Graph (social sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:title" content="ESA | Digital Solutions by Arafat UFD">
+  <meta property="og:description" content="Solusi digital yang praktis, kreatif, dan terjangkau untuk bisnis maupun kebutuhan personal.">
+  <!-- PLACEHOLDER: add these two lines once the final site URL and the sharing image exist.
+       Both need absolute URLs.
+  <meta property="og:url" content="[FINAL-SITE-URL]">
+  <meta property="og:image" content="[FINAL-SITE-URL]/assets/img/og-image.png">
+  -->
+
+  <!-- Favicon (created in Phase 10) -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Plus Jakarta Sans (headings, navigation, buttons, labels) and Inter (body text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap">
+
+  <!-- Styles (order matters) -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+
+  <!--
+    CONTACT DETAILS CONTRACT (used by assets/js/main.js, created in Phase 4)
+    Contact details are NOT written in this file. They live in assets/js/config.js.
+      - Elements with data-link="whatsapp | email | marketplace" receive their href from config.js.
+      - Elements with data-text="whatsapp | email | marketplace" receive their visible text from config.js.
+    Until config.js holds real values, links fall back to "#contact" and the
+    placeholder text stays visible, for example [PLACEHOLDER — WHATSAPP NUMBER].
+
+    MENU BUTTON LABELS (used by main.js): the toggle's aria-label alternates
+    between "Buka menu" (closed) and "Tutup menu" (open).
+  -->
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Langsung ke konten utama</a>
+
+  <!-- ======================================================================
+       NAVIGASI
+       ====================================================================== -->
+  <header class="navbar">
+    <div class="navbar__inner container">
+      <a class="wordmark" href="#home" aria-label="ESA, kembali ke atas">
+        <span class="wordmark__text">ESA</span>
+        <span class="wordmark__accent" aria-hidden="true"></span>
+      </a>
+
+      <button class="navbar__toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Buka menu">
+        <span class="navbar__toggle-icon" aria-hidden="true"></span>
+      </button>
+
+      <nav class="navbar__menu" id="site-menu" aria-label="Menu utama">
+        <ul class="navbar__links">
+          <li><a class="navbar__link" href="#home">Beranda</a></li>
+          <li><a class="navbar__link" href="#about">Tentang Saya</a></li>
+          <li><a class="navbar__link" href="#skills">Keahlian</a></li>
+          <li><a class="navbar__link" href="#services">Layanan</a></li>
+          <li><a class="navbar__link" href="#portfolio">Portofolio</a></li>
+          <li><a class="navbar__link" href="#pricing">Harga</a></li>
+          <li><a class="navbar__link" href="#contact">Kontak</a></li>
+        </ul>
+        <a class="btn btn--primary navbar__cta" href="#contact" data-link="whatsapp">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ====================================================================
+         HERO
+         ==================================================================== -->
+    <section class="section hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__label">ESA | Digital Solutions by Arafat UFD</p>
+          <h1 class="hero__title" id="hero-title">Creative Digital Solutions for Your Business.</h1>
+          <p class="hero__subtitle">Membantu bisnis kecil, UMKM, dan individu menghadirkan ide digital melalui solusi yang praktis, kreatif, dan terjangkau.</p>
+          <div class="btn-group hero__actions">
+            <a class="btn btn--primary" href="#contact" data-link="whatsapp">Contact Me</a>
+            <a class="btn btn--secondary" href="#portfolio">Explore My Work</a>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <!-- Decorative composition: website preview, slide, document page, floating chip, shapes -->
+          <div class="hero-art" aria-hidden="true">
+            <span class="hero-art__backdrop"></span>
+            <span class="hero-art__shape hero-art__shape--circle"></span>
+            <span class="hero-art__shape hero-art__shape--ring"></span>
+            <span class="hero-art__shape hero-art__shape--dot"></span>
+
+            <div class="mock mock--web">
+              <div class="mock__bar"><i class="mock__dot"></i><i class="mock__dot"></i><i class="mock__dot"></i></div>
+              <div class="mock__body">
+                <span class="mock__line mock__line--title"></span>
+                <span class="mock__line mock__line--short"></span>
+                <span class="mock__block"></span>
+                <div class="mock__row"><span class="mock__tile"></span><span class="mock__tile"></span><span class="mock__tile"></span></div>
+              </div>
+            </div>
+
+            <div class="mock mock--slide">
+              <span class="mock__accent"></span>
+              <span class="mock__line mock__line--title"></span>
+              <span class="mock__line mock__line--mid"></span>
+              <span class="mock__line mock__line--short"></span>
+            </div>
+
+            <div class="mock mock--doc">
+              <span class="mock__line mock__line--title"></span>
+              <span class="mock__line"></span>
+              <span class="mock__line"></span>
+              <span class="mock__line mock__line--mid"></span>
+              <span class="mock__line"></span>
+              <span class="mock__line mock__line--short"></span>
+            </div>
+
+            <div class="mock mock--float">
+              <span class="mock__check"></span>
+              <span class="mock__line mock__line--mid"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TENTANG SAYA
+         ==================================================================== -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+        <div class="about__photo">
+          <!-- PLACEHOLDER: replace this .placeholder with
+               <img src="assets/img/[personal-photo-file]" alt="Foto Arafat UFD" width="800" height="1000">
+               once the personal photo is supplied. -->
+          <div class="media media--portrait">
+            <div class="placeholder">
+              <span class="placeholder__label">[PLACEHOLDER — PERSONAL PHOTO]</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__content">
+          <h2 id="about-title">Tentang Saya</h2>
+          <p class="tag">Mengenal Arafat dan ESA</p>
+          <div class="about__body">
+            <p>Halo, saya Arafat, seorang freelancer independen di bidang solusi digital.</p>
+            <p>Melalui ESA, saya menyediakan berbagai layanan digital untuk membantu individu dan bisnis mengembangkan kebutuhan mereka, mulai dari pembuatan website, pengelolaan dokumen, hingga desain presentasi.</p>
+            <p>Saya percaya bahwa solusi digital yang baik tidak harus rumit atau mahal. Dengan pendekatan yang praktis, komunikasi yang jelas, dan perhatian terhadap kualitas, saya berusaha memberikan hasil yang sesuai dengan kebutuhan setiap proyek.</p>
+          </div>
+          <div class="about__identity">
+            <span class="gold-rule" aria-hidden="true"></span>
+            <p class="about__name">Arafat UFD</p>
+            <p class="about__role">Freelancer Solusi Digital Independen</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         KEAHLIAN
+         ==================================================================== -->
+    <section class="section skills" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-heading">
+          <h2 class="section-heading__title" id="skills-title">Keahlian dan Kemampuan</h2>
+          <p class="section-heading__intro">Berbagai kemampuan digital yang digunakan untuk membantu mengubah ide menjadi solusi yang bermanfaat.</p>
+        </header>
+
+        <!-- Core skills -->
+        <div class="cards-3 skills__core">
+          <article class="card skill-card skill-card--core">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </span>
+            <h3 class="card__title">Website Development</h3>
+            <p class="card__text">Pembuatan website menggunakan HTML, CSS, dan JavaScript dengan dukungan AI dalam proses pengembangan.</p>
+          </article>
+
+          <article class="card skill-card skill-card--core">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+            </span>
+            <h3 class="card__title">Document Formatting</h3>
+            <p class="card__text">Pengaturan dan pemformatan dokumen agar lebih rapi, terstruktur, dan profesional.</p>
+          </article>
+
+          <article class="card skill-card skill-card--core">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>
+            </span>
+            <h3 class="card__title">Presentation Design</h3>
+            <p class="card__text">Penyusunan presentasi dengan tampilan visual yang menarik, terorganisasi, dan mudah dipahami.</p>
+          </article>
+        </div>
+
+        <!-- Supporting skills -->
+        <article class="card skill-card skill-card--support skills__support">
+          <div class="skill-card__head">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="M12 3v18"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+            </span>
+            <h3 class="card__title">Excel &amp; Spreadsheet Management</h3>
+          </div>
+          <p class="card__text skill-card__items">Pengelolaan spreadsheet untuk membantu penyusunan dan pengorganisasian informasi.</p>
+        </article>
+
+        <article class="card skill-card skill-card--support skills__support">
+          <div class="skill-card__head">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+            </span>
+            <h3 class="card__title">AI-Assisted Workflow</h3>
+          </div>
+          <p class="card__text skill-card__items">Pemanfaatan AI untuk mendukung proses coding, debugging, pembuatan visual, pengelolaan dokumen, dan produktivitas.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         LAYANAN
+         ==================================================================== -->
+    <section class="section services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-heading">
+          <h2 class="section-heading__title" id="services-title">Layanan yang Saya Tawarkan</h2>
+          <p class="section-heading__intro">Berbagai layanan digital yang praktis dan terjangkau untuk mendukung kebutuhan bisnis maupun personal.</p>
+        </header>
+
+        <div class="cards-3">
+          <article class="card service-card">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+            </span>
+            <h3 class="card__title">Website Development</h3>
+            <p class="card__text">Pembuatan website modern dan responsif untuk memperkenalkan bisnis, layanan, produk, maupun ide secara online.</p>
+            <div class="card__footer">
+              <a class="btn btn--text" href="services/website-development.html">Explore Service<span class="visually-hidden">: Website Development</span></a>
+            </div>
+          </article>
+
+          <article class="card service-card">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+            </span>
+            <h3 class="card__title">Document Formatting</h3>
+            <p class="card__text">Pengaturan dan pemformatan dokumen agar terlihat lebih rapi, profesional, dan mudah dibaca untuk kebutuhan bisnis, akademik, maupun personal.</p>
+            <div class="card__footer">
+              <a class="btn btn--text" href="services/document-formatting.html">Explore Service<span class="visually-hidden">: Document Formatting</span></a>
+            </div>
+          </article>
+
+          <article class="card service-card">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>
+            </span>
+            <h3 class="card__title">Presentation Design</h3>
+            <p class="card__text">Pembuatan presentasi yang terstruktur dan menarik secara visual untuk membantu menyampaikan informasi dan ide dengan lebih efektif.</p>
+            <div class="card__footer">
+              <a class="btn btn--text" href="services/presentation-design.html">Explore Service<span class="visually-hidden">: Presentation Design</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PORTOFOLIO
+         ==================================================================== -->
+    <section class="section portfolio" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <header class="section-heading">
+          <h2 class="section-heading__title" id="portfolio-title">Portofolio Pilihan</h2>
+          <p class="section-heading__intro">Berikut beberapa proyek yang menunjukkan pendekatan saya dalam desain, penyusunan struktur, dan pengembangan solusi digital.</p>
+        </header>
+
+        <div class="cards-3">
+          <!-- PLACEHOLDER: replace each .placeholder with an <img> once project previews exist. -->
+          <article class="card project-card">
+            <div class="media">
+              <div class="placeholder">
+                <span class="placeholder__label">[PLACEHOLDER — PROJECT PREVIEW]</span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__meta">
+                <span class="badge">Self-Initiated Project</span>
+                <span class="tag">Presentation Design</span>
+              </div>
+              <h3 class="card__title">Business Presentation</h3>
+              <p class="card__text">Contoh proyek presentasi bisnis yang dirancang dengan memperhatikan struktur informasi, keterbacaan, dan konsistensi visual.</p>
+              <div class="card__footer">
+                <a class="btn btn--text" href="projects/business-presentation.html">View Project<span class="visually-hidden">: Business Presentation</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="media">
+              <div class="placeholder">
+                <span class="placeholder__label">[PLACEHOLDER — PROJECT PREVIEW]</span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__meta">
+                <span class="badge">Self-Initiated Project</span>
+                <span class="tag">Document Formatting</span>
+              </div>
+              <h3 class="card__title">Professional Document</h3>
+              <p class="card__text">Contoh pemformatan dokumen profesional dengan fokus pada kerapian tata letak, konsistensi format, dan kemudahan membaca.</p>
+              <div class="card__footer">
+                <a class="btn btn--text" href="projects/professional-document.html">View Project<span class="visually-hidden">: Professional Document</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="media">
+              <div class="placeholder">
+                <span class="placeholder__label">[PLACEHOLDER — PROJECT PREVIEW]</span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__meta">
+                <span class="badge">Self-Initiated Project</span>
+                <span class="tag">Website Development</span>
+              </div>
+              <h3 class="card__title">Business Landing Page</h3>
+              <p class="card__text">Contoh landing page bisnis yang dirancang untuk menampilkan informasi, layanan, dan identitas bisnis secara terstruktur.</p>
+              <div class="card__footer">
+                <a class="btn btn--text" href="projects/business-landing-page.html">View Project<span class="visually-hidden">: Business Landing Page</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PRINSIP KERJA
+         ==================================================================== -->
+    <section class="section principles on-dark" id="principles" aria-labelledby="principles-title">
+      <div class="container">
+        <header class="section-heading">
+          <h2 class="section-heading__title" id="principles-title">Prinsip Kerja Saya</h2>
+          <p class="section-heading__intro">Setiap proyek dikerjakan dengan berpegang pada prinsip yang membantu menciptakan proses kerja yang jelas, transparan, dan dapat diandalkan.</p>
+        </header>
+
+        <div class="cards-4">
+          <article class="card card--dark">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </span>
+            <h3 class="card__title">Quality Over Quantity</h3>
+            <p class="card__text">Mengutamakan kualitas hasil pekerjaan daripada sekadar meningkatkan jumlah pekerjaan yang diselesaikan.</p>
+          </article>
+
+          <article class="card card--dark">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <h3 class="card__title">Client Satisfaction</h3>
+            <p class="card__text">Memahami kebutuhan klien dan berusaha memberikan solusi yang sesuai dengan ekspektasi proyek.</p>
+          </article>
+
+          <article class="card card--dark">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            </span>
+            <h3 class="card__title">Clear Communication</h3>
+            <p class="card__text">Menjaga komunikasi yang jelas dan konsisten selama proses pengerjaan proyek.</p>
+          </article>
+
+          <article class="card card--dark">
+            <span class="icon-box" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            <h3 class="card__title">Transparency</h3>
+            <p class="card__text">Bersikap terbuka mengenai harga, ruang lingkup pekerjaan, estimasi waktu, dan proses pengerjaan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         HARGA
+         ==================================================================== -->
+    <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <header class="section-heading">
+          <h2 class="section-heading__title" id="pricing-title">Harga Layanan</h2>
+          <p class="section-heading__intro">Temukan harga awal untuk berbagai layanan digital ESA. Setiap proyek memiliki kebutuhan yang berbeda sehingga harga akhir akan disesuaikan dengan ruang lingkup dan tingkat kompleksitas pekerjaan.</p>
+        </header>
+
+        <div class="cards-3">
+          <article class="card pricing-card">
+            <h3 class="card__title">Document Formatting</h3>
+            <p class="price">
+              <span class="price__label">Starting at</span>
+              <span class="price__amount">Rp25.000</span>
+            </p>
+          </article>
+
+          <article class="card pricing-card">
+            <h3 class="card__title">Presentation Design</h3>
+            <p class="price">
+              <span class="price__label">Starting at</span>
+              <span class="price__amount">Rp35.000</span>
+            </p>
+          </article>
+
+          <article class="card pricing-card">
+            <h3 class="card__title">Basic Website Development</h3>
+            <p class="price">
+              <span class="price__label">Starting at</span>
+              <span class="price__amount">Rp100.000</span>
+            </p>
+          </article>
+        </div>
+
+        <div class="pricing__footer">
+          <p class="pricing__note">Harga akhir dapat berubah sesuai dengan ruang lingkup, tingkat kompleksitas, dan kebutuhan khusus setiap proyek.</p>
+          <a class="btn btn--primary" href="#contact" data-link="whatsapp">Discuss Your Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         KONTAK
+         ==================================================================== -->
+    <section class="section contact on-dark" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__grid">
+        <div class="contact__content">
+          <h2 id="contact-title">Mari Bekerja Sama</h2>
+          <div class="contact__text">
+            <p>Punya ide atau proyek yang ingin diwujudkan?</p>
+            <p>Mari diskusikan kebutuhan Anda dan temukan solusi digital yang tepat untuk proyek tersebut.</p>
+          </div>
+          <div class="contact__actions">
+            <a class="btn btn--primary" href="#contact" data-link="whatsapp">Contact Me</a>
+          </div>
+        </div>
+
+        <ul class="contact__channels">
+          <li>
+            <a class="card contact-card" href="#contact" data-link="whatsapp">
+              <span class="icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+              </span>
+              <span class="contact-card__text">
+                <span class="contact-card__label">WhatsApp</span>
+                <span class="contact-card__value" data-text="whatsapp">[PLACEHOLDER — WHATSAPP NUMBER]</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="card contact-card" href="#contact" data-link="email">
+              <span class="icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </span>
+              <span class="contact-card__text">
+                <span class="contact-card__label">Email</span>
+                <span class="contact-card__value" data-text="email">[PLACEHOLDER — EMAIL ADDRESS]</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="card contact-card" href="#contact" data-link="marketplace">
+              <span class="icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              </span>
+              <span class="contact-card__text">
+                <span class="contact-card__label">Freelance Marketplace</span>
+                <span class="contact-card__value" data-text="marketplace">[PLACEHOLDER — MARKETPLACE PROFILE URL]</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer on-dark">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="wordmark" href="#home" aria-label="ESA, kembali ke atas">
+            <span class="wordmark__text">ESA</span>
+            <span class="wordmark__accent" aria-hidden="true"></span>
+          </a>
+          <p class="footer__tagline">Digital Solutions by Arafat UFD</p>
+          <p class="footer__description">Solusi digital yang praktis, kreatif, dan terjangkau untuk bisnis maupun kebutuhan personal.</p>
+        </div>
+
+        <nav class="footer__nav" aria-label="Navigasi footer">
+          <h2 class="footer__title">Navigasi</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="#home">Beranda</a></li>
+            <li><a class="footer__link" href="#about">Tentang Saya</a></li>
+            <li><a class="footer__link" href="#skills">Keahlian</a></li>
+            <li><a class="footer__link" href="#services">Layanan</a></li>
+            <li><a class="footer__link" href="#portfolio">Portofolio</a></li>
+            <li><a class="footer__link" href="#pricing">Harga</a></li>
+            <li><a class="footer__link" href="#contact">Kontak</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__contact">
+          <h2 class="footer__title">Kontak</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="#contact" data-link="email">Email</a></li>
+            <li><a class="footer__link" href="#contact" data-link="whatsapp">WhatsApp</a></li>
+            <li><a class="footer__link" href="#contact" data-link="marketplace">Freelance Marketplace</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 ESA | Digital Solutions by Arafat UFD. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts (created in Phase 4). config.js must load before main.js. -->
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

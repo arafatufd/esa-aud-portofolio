@@ -1,0 +1,748 @@
+/* ==========================================================================
+   ESA | Digital Solutions by Arafat UFD
+   File:    assets/css/components.css
+   Purpose: Reusable UI components shared by the homepage and detail pages.
+   Depends: tokens.css, base.css (loaded first)
+   Order:   tokens.css -> base.css -> components.css -> sections.css -> pages.css
+
+   Naming: .block, .block__element, .block--modifier
+
+   Contents
+      1. Dark-section scoping (button and icon colours)
+      2. Wordmark (temporary text logo)
+      3. Buttons
+      4. Cards (+ light/dark scoping)
+      5. Icon box and inline icons
+      6. Badge, tag, chips
+      7. Media frames and placeholders
+      8. Section heading
+      9. Price block
+     10. Plain links and gold rule
+     11. Navbar (desktop + mobile menu)
+
+   Interface contract for main.js (mobile menu):
+     - Toggle button:  .navbar__toggle  with aria-expanded="true|false"
+                       and aria-controls pointing to the menu's id
+     - Menu panel:     .navbar__menu    (main.js adds / removes .is-open)
+     - <body>:         main.js adds / removes .no-scroll (from base.css)
+     - Current link:   .navbar__link.is-active (optional scroll-spy)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. DARK-SECTION SCOPING
+   .on-dark (base.css) flips text colours. These extra tokens flip buttons
+   and icons so the same components work on Deep Navy and Midnight Navy.
+   ========================================================================== */
+.on-dark {
+  --btn-primary-bg:         var(--color-white);
+  --btn-primary-text:       var(--color-navy);
+  --btn-primary-bg-hover:   var(--color-light-blue);
+  --btn-secondary-text:     var(--color-white);
+  --btn-secondary-border:   var(--color-white);
+  --btn-secondary-bg-hover: rgba(255, 255, 255, 0.10);
+  --btn-text-color:         var(--color-white);
+  --icon-color:             var(--color-light-blue);
+}
+
+
+/* ==========================================================================
+   2. WORDMARK (temporary text-based ESA logo)
+   Markup:
+     <a class="wordmark" href="...">
+       <span class="wordmark__text">ESA</span>
+       <span class="wordmark__accent" aria-hidden="true"></span>
+     </a>
+   Colour follows --text-heading, so it turns white inside .on-dark.
+   ========================================================================== */
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-heading);
+  text-decoration: none;
+  padding-block: 10px;            /* 24px text + 20px = 44px touch target */
+}
+
+.wordmark:hover {
+  color: var(--text-heading);
+}
+
+.wordmark__accent {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+
+/* ==========================================================================
+   3. BUTTONS
+   Variants: .btn--primary, .btn--secondary, .btn--text
+   Helpers:  .btn--block (full width), .btn-group (row of buttons)
+   Works on <a> and <button>.
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--touch-target);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-heading);
+  font-size: var(--fs-button);
+  font-weight: var(--fw-semibold);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  transition: var(--transition-colors);
+}
+
+.btn svg {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  flex-shrink: 0;
+}
+
+/* Primary: Deep Navy background, white text */
+.btn--primary {
+  color: var(--btn-primary-text);
+  background-color: var(--btn-primary-bg);
+  border-color: var(--btn-primary-bg);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  color: var(--btn-primary-text);
+  background-color: var(--btn-primary-bg-hover);
+  border-color: var(--btn-primary-bg-hover);
+}
+
+/* Secondary: transparent background, Navy border and text */
+.btn--secondary {
+  color: var(--btn-secondary-text);
+  background-color: var(--btn-secondary-bg);
+  border-color: var(--btn-secondary-border);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+  color: var(--btn-secondary-text);
+  background-color: var(--btn-secondary-bg-hover);
+}
+
+/* Text: no background, Navy text */
+.btn--text {
+  padding-inline: var(--space-2);
+  color: var(--btn-text-color);
+  background-color: transparent;
+}
+
+.btn--text:hover,
+.btn--text:focus-visible {
+  color: var(--btn-text-color);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.btn--block {
+  display: flex;
+  width: 100%;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+}
+
+
+/* ==========================================================================
+   4. CARDS
+   One shared visual language for service, project, skill, principle,
+   pricing and contact cards (Document B section 5.2).
+
+   Markup:
+     <article class="card">
+       <div class="icon-box">...</div>
+       <h3 class="card__title">...</h3>
+       <p class="card__text">...</p>
+       <div class="card__footer">...</div>
+     </article>
+
+   Modifiers: .card--dark (principle cards on navy), .card--static (no hover lift)
+   ========================================================================== */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  height: 100%;
+  padding: var(--card-padding);
+  background-color: var(--bg-card);
+  border: var(--border-card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-lift);
+}
+
+/* A white card keeps light-theme colours even when it sits inside a dark
+   section (for example contact cards on Deep Navy). */
+.card:not(.card--dark) {
+  --text-primary:           var(--color-charcoal);
+  --text-heading:           var(--color-navy);
+  --text-muted:             rgba(32, 38, 49, 0.72);
+  --link-color:             var(--color-navy);
+  --link-hover:             var(--color-midnight);
+  --focus-ring-color:       var(--color-navy);
+  --btn-primary-bg:         var(--color-navy);
+  --btn-primary-text:       var(--color-white);
+  --btn-primary-bg-hover:   var(--color-midnight);
+  --btn-secondary-text:     var(--color-navy);
+  --btn-secondary-border:   var(--color-navy);
+  --btn-secondary-bg-hover: var(--color-light-blue);
+  --btn-text-color:         var(--color-navy);
+  --icon-color:             var(--color-navy);
+  color: var(--color-charcoal);
+}
+
+/* Dark variant: translucent surface on Deep Navy, white text */
+.card--dark {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+  color: var(--text-on-dark);
+}
+
+@media (hover: hover) {
+  .card:not(.card--static):hover {
+    transform: translateY(var(--lift-distance));
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .card--dark:not(.card--static):hover {
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.28);
+  }
+}
+
+.card__title {
+  font-size: var(--fs-card);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+}
+
+.card__text {
+  color: var(--text-muted);
+}
+
+/* Pushes the footer (CTA) to the bottom so cards in a row stay aligned */
+.card__footer {
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+
+/* ==========================================================================
+   5. ICON BOX AND INLINE ICONS
+   Outline icons (Lucide-style inline SVG).
+   Markup:
+     <span class="icon-box" aria-hidden="true">
+       <svg class="icon" viewBox="0 0 24 24">...</svg>
+     </span>
+   ========================================================================== */
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--icon-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-bubble);
+  height: var(--icon-bubble);
+  flex-shrink: 0;
+  color: var(--icon-color);
+  background-color: var(--icon-bg);
+  border-radius: var(--radius-icon);
+}
+
+/* On navy: translucent bubble with a subtle Soft Gold icon */
+.icon-box--dark,
+.card--dark .icon-box {
+  color: var(--accent-gold);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==========================================================================
+   6. BADGE, TAG, CHIPS
+   ========================================================================== */
+
+/* SELF-INITIATED PROJECT label. The HTML may hold "Self-Initiated Project";
+   it is displayed in capitals to match Document B. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-heading);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  background-color: var(--color-light-blue);
+  border-radius: var(--radius-pill);
+}
+
+.badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+/* Category label above or below a title (for example "Presentation Design") */
+.tag {
+  font-family: var(--font-heading);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+/* Skill chips (supporting skills) */
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+  color: var(--color-charcoal);
+  background-color: var(--color-white);
+  border: var(--border-card);
+  border-radius: var(--radius-button);
+}
+
+
+/* ==========================================================================
+   7. MEDIA FRAMES AND PLACEHOLDERS
+   .media crops an image (or placeholder) to a fixed ratio.
+   Modifiers: .media--portrait (4:5, About photo)
+   Placeholder markup:
+     <div class="media">
+       <div class="placeholder">
+         <span class="placeholder__label">Project Preview Placeholder</span>
+       </div>
+     </div>
+   ========================================================================== */
+.media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--color-light-blue);
+  border-radius: var(--radius-card);
+}
+
+.media--portrait {
+  aspect-ratio: 4 / 5;
+}
+
+.card .media {
+  border-radius: var(--radius-icon);
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+@media (hover: hover) {
+  .media:hover img,
+  .card:hover .media img {
+    transform: scale(var(--image-zoom));
+  }
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--color-navy);
+  background-color: var(--color-light-blue);
+  border: var(--border-width) dashed rgba(20, 43, 74, 0.35);
+  border-radius: inherit;
+}
+
+.placeholder__label {
+  font-family: var(--font-heading);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  line-height: 1.4;
+}
+
+
+/* ==========================================================================
+   8. SECTION HEADING
+   Markup:
+     <header class="section-heading">
+       <h2 class="section-heading__title">...</h2>
+       <p class="section-heading__intro">...</p>
+     </header>
+   Modifier: .section-heading--center
+   ========================================================================== */
+.section-heading {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 720px;
+  margin-bottom: var(--space-10);
+}
+
+.section-heading__intro {
+  max-width: var(--measure);
+  color: var(--text-muted);
+}
+
+.section-heading--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-heading--center .section-heading__intro {
+  margin-inline: auto;
+}
+
+
+/* ==========================================================================
+   9. PRICE BLOCK
+   Markup:
+     <p class="price">
+       <span class="price__label">Starting at</span>
+       <span class="price__amount">Rp25,000</span>
+     </p>
+   ========================================================================== */
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.price__label {
+  font-family: var(--font-heading);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.price__amount {
+  font-family: var(--font-heading);
+  font-size: var(--fs-section);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-section);
+  color: var(--text-heading);
+}
+
+
+/* ==========================================================================
+   10. PLAIN LINKS AND GOLD RULE
+   ========================================================================== */
+
+/* Links without an underline until hover (contact channels, footer links) */
+.link-plain {
+  text-decoration: none;
+}
+
+.link-plain:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* Small decorative Soft Gold bar. Use sparingly. */
+.gold-rule {
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent-gold);
+  border-radius: 2px;
+}
+
+
+/* ==========================================================================
+   11. NAVBAR
+   Horizontal navbar on desktop (1024px and up); hamburger menu below that.
+   Markup:
+     <header class="navbar">
+       <div class="navbar__inner container">
+         <a class="wordmark" ...>...</a>
+         <button class="navbar__toggle" aria-expanded="false"
+                 aria-controls="site-menu" aria-label="Open menu">
+           <span class="navbar__toggle-icon" aria-hidden="true"></span>
+         </button>
+         <nav class="navbar__menu" id="site-menu" aria-label="Primary">
+           <ul class="navbar__links">
+             <li><a class="navbar__link" href="#about">About</a></li>
+             ...
+           </ul>
+           <a class="btn btn--primary navbar__cta" href="...">Contact Me</a>
+         </nav>
+       </div>
+     </header>
+   ========================================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  background-color: var(--bg-page);
+  border-bottom: var(--border-card);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--nav-height);
+}
+
+/* ---- Hamburger button (mobile and tablet) ---- */
+.navbar__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  margin-right: calc(var(--space-2) * -1);
+  border-radius: var(--radius-button);
+  color: var(--color-navy);
+}
+
+.navbar__toggle-icon,
+.navbar__toggle-icon::before,
+.navbar__toggle-icon::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: transform var(--duration-base) var(--ease-standard),
+              background-color var(--duration-base) var(--ease-standard);
+}
+
+.navbar__toggle-icon {
+  position: relative;
+}
+
+.navbar__toggle-icon::before,
+.navbar__toggle-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.navbar__toggle-icon::before {
+  transform: translateY(-7px);
+}
+
+.navbar__toggle-icon::after {
+  transform: translateY(7px);
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-icon {
+  background-color: transparent;
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-icon::before {
+  transform: rotate(45deg);
+}
+
+.navbar__toggle[aria-expanded="true"] .navbar__toggle-icon::after {
+  transform: rotate(-45deg);
+}
+
+/* ---- Menu panel (mobile and tablet): drops down below the navbar ---- */
+.navbar__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: calc(100vh - var(--nav-height));
+  overflow-y: auto;
+  padding: var(--space-2) var(--container-pad) var(--space-6);
+  background-color: var(--bg-page);
+  border-bottom: var(--border-card);
+  box-shadow: var(--shadow-card-hover);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard),
+              visibility 0s linear var(--duration-base);
+}
+
+.navbar__menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.navbar__links {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-4);
+}
+
+.navbar__link {
+  display: flex;
+  align-items: center;
+  min-height: var(--touch-target);
+  padding-block: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-charcoal);
+  text-decoration: none;
+  border-bottom: var(--border-card);
+  transition: var(--transition-colors);
+}
+
+.navbar__link:hover,
+.navbar__link.is-active {
+  color: var(--color-navy);
+}
+
+.navbar__link.is-active {
+  font-weight: var(--fw-semibold);
+}
+
+.navbar__cta {
+  width: 100%;
+}
+
+/* ---- Desktop: inline horizontal navigation ---- */
+@media (min-width: 1024px) {
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__menu {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    background: none;
+    border-bottom: 0;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .navbar__links {
+    flex-direction: row;
+    gap: var(--space-6);
+    margin-bottom: 0;
+  }
+
+  .navbar__link {
+    position: relative;
+    min-height: var(--touch-target);
+    padding-block: 0;
+    border-bottom: 0;
+  }
+
+  /* Soft Gold underline for the current section */
+  .navbar__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 6px;
+    height: 2px;
+    background-color: var(--accent-gold);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-base) var(--ease-standard);
+  }
+
+  .navbar__link.is-active::after {
+    transform: scaleX(1);
+  }
+
+  .navbar__cta {
+    width: auto;
+  }
+}
+
+/* ---- No-JavaScript fallback (below 1024px) ----
+   The menu button needs JavaScript. When scripting is off, hide the button
+   and show the menu as a normal block under the logo. The navbar stops being
+   sticky so the open list does not cover the page. */
+@media (scripting: none) and (max-width: 1023.98px) {
+  .navbar {
+    position: static;
+  }
+
+  .navbar__inner {
+    flex-wrap: wrap;
+  }
+
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__menu {
+    position: static;
+    flex-basis: 100%;
+    max-height: none;
+    overflow: visible;
+    padding-inline: 0;
+    border-bottom: 0;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+}
