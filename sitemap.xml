@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 404.html is intentionally not listed. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://arafatufd.github.io/esa-aud-portofolio/</loc>
+  </url>
+  <url>
+    <loc>https://arafatufd.github.io/esa-aud-portofolio/services/website-development.html</loc>
+  </url>
+  <url>
+    <loc>https://arafatufd.github.io/esa-aud-portofolio/services/document-formatting.html</loc>
+  </url>
+  <url>
+    <loc>https://arafatufd.github.io/esa-aud-portofolio/services/presentation-design.html</loc>
+  </url>
+  <url>
+    <loc>https://arafatufd.github.io/esa-aud-portofolio/projects/business-presentation.html</loc>
+  </url>
+  <url>
+    <loc>https://arafatufd.github.io/esa-aud-portofolio/projects/professional-document.html</loc>
+  </url>
+  <url>
+    <loc>https://arafatufd.github.io/esa-aud-portofolio/projects/business-landing-page.html</loc>
+  </url>
+</urlset>
