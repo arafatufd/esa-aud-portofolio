@@ -30,8 +30,8 @@ window.ESA_CONFIG = Object.freeze({
               WhatsApp button. Edit freely, or leave empty for no message.
      ------------------------------------------------------------------------ */
   whatsapp: {
-    number: "",
-    display: "",
+    number: "+6287848455355",
+    display: "+62 878-4845-5355",
     message: "Halo Arafat, saya ingin berdiskusi tentang proyek digital."
   },
 
@@ -40,7 +40,7 @@ window.ESA_CONFIG = Object.freeze({
      address: the full email address, for example name@example.com
      ------------------------------------------------------------------------ */
   email: {
-    address: ""
+    address: "ufdarafat.indonesia@gmail.com"
   },
 
   /* ------------------------------------------------------------------------
