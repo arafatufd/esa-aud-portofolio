@@ -81,7 +81,6 @@ Cari teks `[PLACEHOLDER — ...]` di file HTML untuk menemukan semuanya.
   - Presentation Design: jumlah slide dalam harga awal dan format file yang diserahkan.
 - **Halaman proyek (ketiganya):** satu gambar pratinjau utama, tiga gambar galeri beserta keterangannya, alat yang digunakan, dan tahun pembuatan.
   - Business Landing Page juga memerlukan konsep bisnis dan (opsional) tautan demo.
-- **Situs:** gambar untuk berbagi di media sosial (`assets/img/og-image.png`, lihat bagian Setelah situs terbit).
 
 ### Mengganti bingkai placeholder dengan gambar
 
@@ -107,12 +106,13 @@ Halaman biasa memakai path relatif, jadi situs bekerja di alamat repositori proy
 
 Alamat situs final sudah dipasang di `robots.txt`, `sitemap.xml`, serta tag `canonical` dan `og:url` pada ketujuh halaman (`index.html`, tiga halaman layanan, tiga halaman proyek).
 
+Gambar berbagi sosial sudah ada di `assets/img/og-image.png` (1200 × 630 px) dan tag `og:image` sudah aktif di ketujuh halaman. Gambar ini adalah kartu merek sederhana. Jika ingin menggantinya, simpan gambar baru dengan nama dan ukuran yang sama.
+
 Yang masih perlu dilakukan:
 
-1. Siapkan gambar berbagi sosial berukuran 1200 × 630 px (PNG) dan simpan sebagai `assets/img/og-image.png`.
-2. Aktifkan tag `og:image`: di bagian `<head>` ketujuh halaman, hapus penanda komentar (`<!--` dan `-->`) yang mengelilingi baris `<meta property="og:image" ...>`. Alamat gambarnya sudah terisi.
-3. Periksa tampilan di perangkat nyata (lihat bagian status pengujian).
-4. Uji pratinjau tautan dengan membagikan alamat situs di aplikasi pesan, atau dengan alat pemeriksa Open Graph.
+1. Unggah semua file terbaru ke repositori, termasuk `assets/img/og-image.png`.
+2. Periksa tampilan di perangkat nyata (lihat bagian status pengujian).
+3. Uji pratinjau tautan dengan membagikan alamat situs di aplikasi pesan, atau dengan alat pemeriksa Open Graph. Aplikasi biasanya menyimpan pratinjau lama untuk sementara, jadi hasilnya bisa baru berubah setelah beberapa saat.
 
 ## Halaman 404
 
