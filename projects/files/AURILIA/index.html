@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aurelia — Premium Skincare</title>
+  <meta name="description" content="Aurelia is a fictional premium skincare brand: a self-initiated web development portfolio demonstration.">
+  <meta name="theme-color" content="#343D32">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Project files (created in later stages) -->
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- SECTION 01 — NAVIGATION -->
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="nav__logo" href="#home" aria-label="Aurelia, back to top">Aurelia</a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#home">Home</a></li>
+          <li><a class="nav__link" href="#story">Our Story</a></li>
+          <li><a class="nav__link" href="#products">Products</a></li>
+          <li><a class="nav__link" href="#benefits">Benefits</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+        <a class="btn btn--primary nav__cta" href="#products">Shop Now</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- SECTION 02 — HERO -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero__inner container">
+        <div class="hero__content">
+          <h1 class="hero__title" id="hero-title">Reveal Your Natural Radiance.</h1>
+          <p class="hero__text">Thoughtfully crafted skincare essentials designed to elevate your daily ritual.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#products">Explore Collection</a>
+            <a class="btn btn--outline" href="#philosophy">Our Philosophy</a>
+          </div>
+        </div>
+        <figure class="hero__media">
+          <img class="hero__image"
+               src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1000&q=80"
+               alt="Skincare serum bottles arranged on a soft neutral surface"
+               width="1000" height="1250">
+        </figure>
+      </div>
+    </section>
+
+    <!-- SECTION 03 — BRAND INTRODUCTION -->
+    <section class="intro section" id="story" aria-labelledby="intro-title">
+      <div class="intro__inner container">
+        <figure class="intro__media">
+          <img class="intro__image"
+               src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80"
+               alt="Minimal skincare products styled with soft natural light"
+               width="900" height="1100" loading="lazy">
+        </figure>
+        <div class="intro__content">
+          <h2 class="section__title" id="intro-title">Skincare, Thoughtfully Refined.</h2>
+          <p class="section__text">At Aurelia, we believe skincare should feel effortless, intentional, and personal. Our approach combines thoughtful formulations with a refined daily experience, helping you create moments of care in every routine.</p>
+          <p class="section__note">Aurelia is a fictional brand created for a web development portfolio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04 — FEATURED PRODUCTS -->
+    <section class="products section" id="products" aria-labelledby="products-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 class="section__title" id="products-title">Featured Products</h2>
+          <p class="section__text">Three essentials for a simple, considered daily routine.</p>
+        </header>
+
+        <ul class="products__grid">
+          <li>
+            <article class="product-card">
+              <div class="product-card__media">
+                <img class="product-card__image"
+                     src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80"
+                     alt="Aurelia Radiance Serum in a glass dropper bottle"
+                     width="800" height="1000" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <p class="product-card__category">Facial Serum</p>
+                <h3 class="product-card__name">Aurelia Radiance Serum</h3>
+                <p class="product-card__desc">A lightweight serum designed to complement your daily skincare routine.</p>
+                <p class="product-card__price">$32</p>
+                <button class="btn btn--outline product-card__cta" type="button" data-product="Aurelia Radiance Serum">Discover Product</button>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="product-card">
+              <div class="product-card__media">
+                <img class="product-card__image"
+                     src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80"
+                     alt="Aurelia Hydration Cream in a minimal jar"
+                     width="800" height="1000" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <p class="product-card__category">Moisturizer</p>
+                <h3 class="product-card__name">Aurelia Hydration Cream</h3>
+                <p class="product-card__desc">A nourishing daily moisturizer with a soft, comfortable finish.</p>
+                <p class="product-card__price">$38</p>
+                <button class="btn btn--outline product-card__cta" type="button" data-product="Aurelia Hydration Cream">Discover Product</button>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="product-card">
+              <div class="product-card__media">
+                <img class="product-card__image"
+                     src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=80"
+                     alt="Aurelia Gentle Cleanser in a pump bottle"
+                     width="800" height="1000" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <p class="product-card__category">Facial Cleanser</p>
+                <h3 class="product-card__name">Aurelia Gentle Cleanser</h3>
+                <p class="product-card__desc">A gentle daily cleanser designed for a refreshing skincare experience.</p>
+                <p class="product-card__price">$26</p>
+                <button class="btn btn--outline product-card__cta" type="button" data-product="Aurelia Gentle Cleanser">Discover Product</button>
+              </div>
+            </article>
+          </li>
+        </ul>
+
+        <p class="products__disclaimer">Products and prices are fictional portfolio content. No purchases can be made on this site.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 05 — BRAND BENEFITS -->
+    <section class="benefits section" id="benefits" aria-labelledby="benefits-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 class="section__title" id="benefits-title">The Aurelia Difference.</h2>
+        </header>
+
+        <ul class="benefits__grid">
+          <li class="benefit">
+            <svg class="benefit__icon" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 6h12M20 6v12l-9 17a4 4 0 0 0 3.5 6h19a4 4 0 0 0 3.5-6l-9-17V6"/>
+              <path d="M15 30h18"/>
+            </svg>
+            <h3 class="benefit__title">Thoughtful Formulation</h3>
+            <p class="benefit__text">Products designed around a considered skincare experience.</p>
+          </li>
+          <li class="benefit">
+            <svg class="benefit__icon" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="24" cy="24" r="16"/>
+              <path d="M24 14v10l7 4"/>
+            </svg>
+            <h3 class="benefit__title">Everyday Simplicity</h3>
+            <p class="benefit__text">A straightforward approach to daily skincare routines.</p>
+          </li>
+          <li class="benefit">
+            <svg class="benefit__icon" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M24 6l5 12 13 1-10 8 3 13-11-7-11 7 3-13-10-8 13-1z"/>
+            </svg>
+            <h3 class="benefit__title">Refined Experience</h3>
+            <p class="benefit__text">A premium experience from product presentation to everyday use.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 06 — BRAND PHILOSOPHY -->
+    <section class="philosophy section" id="philosophy" aria-labelledby="philosophy-title">
+      <div class="philosophy__inner container">
+        <h2 class="philosophy__title" id="philosophy-title">Beauty in Every Detail.</h2>
+        <blockquote class="philosophy__quote">
+          <p>We believe that true luxury is found in the details: thoughtful choices, simple rituals, and the confidence to feel comfortable in your own skin.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- SECTION 07 — TESTIMONIALS -->
+    <section class="testimonials section" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 class="section__title" id="testimonials-title">Words from Our Community.</h2>
+          <p class="section__note">Fictional demonstration content. These are not verified customer reviews.</p>
+        </header>
+
+        <ul class="testimonials__grid">
+          <li>
+            <figure class="testimonial">
+              <blockquote class="testimonial__quote">
+                <p>The routine feels calm and unhurried. Even the packaging makes my morning feel a little more intentional.</p>
+              </blockquote>
+              <figcaption class="testimonial__author">Sample customer, Maya</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="testimonial">
+              <blockquote class="testimonial__quote">
+                <p>Simple, elegant, and easy to keep up with. I like that there are only a few steps to remember.</p>
+              </blockquote>
+              <figcaption class="testimonial__author">Sample customer, Daniel</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="testimonial">
+              <blockquote class="testimonial__quote">
+                <p>The textures are light and pleasant, and the whole collection looks beautiful on my shelf.</p>
+              </blockquote>
+              <figcaption class="testimonial__author">Sample customer, Sofia</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 08 — FINAL CTA -->
+    <section class="final-cta section" id="cta" aria-labelledby="cta-title">
+      <div class="final-cta__inner container">
+        <h2 class="final-cta__title" id="cta-title">Make Every Day a Skincare Ritual.</h2>
+        <p class="final-cta__text">Discover a more thoughtful approach to your everyday skincare routine.</p>
+        <a class="btn btn--light" href="#products">Explore the Collection</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SECTION 09 — FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="footer__inner container">
+      <div class="footer__brand">
+        <a class="footer__logo" href="#home" aria-label="Aurelia, back to top">Aurelia</a>
+        <p class="footer__text">A fictional premium skincare brand, created as a self-initiated web development portfolio project.</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <h2 class="footer__heading">Explore</h2>
+        <ul class="footer__list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <h2 class="footer__heading">Contact</h2>
+        <address class="footer__address">
+          <p>hello@aurelia.example</p>
+          <p>+00 000 000 0000</p>
+          <p>Placeholder details for demonstration only.</p>
+        </address>
+      </div>
+
+      <div class="footer__social">
+        <h2 class="footer__heading">Follow</h2>
+        <ul class="footer__list">
+          <li><a href="#contact" data-placeholder="Instagram">Instagram</a></li>
+          <li><a href="#contact" data-placeholder="Pinterest">Pinterest</a></li>
+          <li><a href="#contact" data-placeholder="Facebook">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p>&copy; 2026 Aurelia. Fictional brand for portfolio demonstration. Project 003, self-initiated, not a commissioned client project.</p>
+    </div>
+  </footer>
+</body>
+</html>
