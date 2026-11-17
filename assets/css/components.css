@@ -166,6 +166,17 @@
   gap: var(--space-3) var(--space-4);
 }
 
+/* Disabled button, for example a download whose file has not been supplied yet */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--primary:disabled:hover {
+  background-color: var(--btn-primary-bg);
+  border-color: var(--btn-primary-bg);
+}
+
 
 /* ==========================================================================
    4. CARDS
