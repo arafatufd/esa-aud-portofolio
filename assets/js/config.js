@@ -50,8 +50,8 @@ window.ESA_CONFIG = Object.freeze({
               the address without "https://".
      ------------------------------------------------------------------------ */
   marketplace: {
-    url: "",
-    display: ""
+    url: "https://arafatufd.github.io/esa-aud-portofolio/",
+    display: "Belum tersedia"
   }
 
 });
